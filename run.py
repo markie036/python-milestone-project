@@ -8,10 +8,14 @@ def quiz(riddle):
             print("Correct! Well done.\nYour score is",score)
         
     else: 
-        print("Your answer is wrong")
+        wrong_answer(answer, riddle)
 
 def right_answer(answer,riddle):
     return answer == riddle["answer"]
+    
+def wrong_answer(answer, riddle): 
+    if answer != riddle["answer"]:
+        print("Sorry", answer, "is wrong.")
 
 def main():
     with open("riddles.json") as riddles_file:
