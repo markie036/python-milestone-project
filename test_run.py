@@ -10,10 +10,10 @@ def test_wrong_answer():
 """Assert tests"""
 
 def test_correct_answer(): #function to test the question/answer on line 24
-    assert 4 + 4 == 9
+    assert 4 + 4 == 8
    
 def test_wrong_answer():
-    assert not 4 + 4 == 8 
+    assert not 4 + 4 == 9 
    
 test_correct_answer()
 test_wrong_answer()
