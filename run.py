@@ -13,6 +13,7 @@ def quiz(riddle):
             global score
             score +=1
             print("Correct! Well done.\nYour score is",score)
+            break
         
         else: 
             wrong_answer(answer, riddle)
