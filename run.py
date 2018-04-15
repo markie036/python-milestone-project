@@ -4,14 +4,18 @@ def quiz(riddle):
     """Asks the riddle question and takes the users answer to match the official answer"""
     answer = input(riddle["question"] + " ")
 
-    return answer == riddle["answer"] #will take the answer of each riddle
+    if right_answer(answer, riddle): #will take the answer of each riddle
+            print("Correct! Well done.\nYour score is",score)
+        
+    else: 
+        print("Your score is",score)
 
-with open("riddles.json") as riddles_file:
-    riddles = json.load(riddles_file)
+def right_answer(answer,riddle):
+    return answer == riddle["answer"]
 
+def main():
+    with open("riddles.json") as riddles_file:
+        riddles = json.load(riddles_file)
 
-for riddle in riddles: #loops through the quiz questions
-    print(quiz(riddle))
-
-
-
+    for riddle in riddles: #loops through the quiz questions
+        print(quiz(riddle))
