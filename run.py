@@ -8,7 +8,7 @@ def quiz(riddle):
             print("Correct! Well done.\nYour score is",score)
         
     else: 
-        print("Your score is",score)
+        print("Your answer is wrong")
 
 def right_answer(answer,riddle):
     return answer == riddle["answer"]
