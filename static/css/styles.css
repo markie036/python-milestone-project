@@ -1,0 +1,15 @@
+.headerPic{background-image: url("/static/img/main-desktop.jpg"); background-position: center center; height: 200px;}
+
+body{background-color: #35c2d7; font-family: '', sans-serif;}
+
+.footerText{color: white; font-size: 2ems;}
+
+footer{
+    background-color: #28738f; 
+    height: 50px; 
+    margin: auto;
+    padding: 15px;}
+    
+/*Login forms*/
+#loginbox{background-color: #fff; margin:30px 0 30px 0;}
+.gap{margin-bottom:25px}

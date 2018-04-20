@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+        
+    <h1>{{ page_title }}</h1>   
+    
+    <!--intro text-->
+    <p>Fill in your details for your chance to see if you can make it to the top of the leaderboard!</p> 
+    
+    <div class="container">
+        <div id="loginbox" class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1"> 
+        
+            <div style="padding-top:30px" class="panel-body">
+        
+                <form id="loginform" class="form-horizontal" role="form">
+                        
+                        <div class="form-group">
+                            <label for="username" class="col-md-2 control-label">Username</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="col-md-2 control-label">Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="passwd" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Button -->                                        
+                            <div class="col-md-offset-2 col-md-9">
+                                <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                            </div>
+                        </div>    
+                </form> 
+            </div>
+        </div>
+    </div>
+            
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+        
+    <h1>{{ page_title }}</h1>    
+    <!--intro text-->
+    <h3>Riddle Me Quiz Instructions</h3>
+
+    <p>Below you will find a riddle. Submit your answer using the form field. If you are correct, the next riddle will show. 
+    If you are incorrect, you will be given another go. You have 3 attempts to get each riddle correct. </br>
+
+    Sign in or sign up above to be logged into our leaderboard.</br>
+
+    Good luck and happy riddling!</p>    
+        
+        <form>
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                    <label>Answer</label>
+                    <input type="text" class="form-control" placeholder="Answer" name="answer" id="answer">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+        </form>
+            
+{% endblock %}
