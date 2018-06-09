@@ -1,16 +1,43 @@
 [
     {
-        "question": "I'm so fast you can't see me, though everyone else can see straight through me. I don't stop until the day you die. What am I?",
-        "answer": "The blink of an eye",
-        "answer words": ["blink", "eye"]
+        "question": "I'm a god, a planet, and measurer of heat. Who am I?",
+        "answer": "Mercury"
         
     },
     {
-        "question": "What is Africa?",
-        "answer": "A continent"
+        "question": "A book costs £1 plus half its price. How much does it cost?",
+        "answer": "£2"
     },
     {
-        "question": "What is the capital city of Scotland?",
-        "answer": "Edinburgh"
+        "question": "Two words, my answer is only two words. To keep me, you must give me. What am I?",
+        "answer": "Your word"
+    },
+    {
+        "question": "A man in a car saw a Golden Door, Silver Door and a Bronze Door. What door did he open first?",
+        "answer": "The car door"
+    },
+    {
+        "question": "What has a head, a tail, is brown, and has no legs?",
+        "answer": "A penny"
+    },
+    {
+        "question": "David's father has three sons : Snap, Crackle and _____ ?",
+        "answer": "David"
+    },
+    {
+        "question": "What has many keys, but can't even open a single door?",
+        "answer": "A piano"
+    },
+    {
+        "question": "Flat as a leaf, round as a ring; Has two eyes, can't see a thing. What is it?",
+        "answer": "A button"
+    },
+    {
+        "question": "I go up and down the stairs without moving. What am I?",
+        "answer": "A carpet"
+    },
+    {
+        "question": "What can point in every direction but can't reach the destination by itself.",
+        "answer": "Your finger"
     }
 ]
