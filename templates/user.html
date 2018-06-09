@@ -1,35 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
     
-    {% if user %}    
-    
-        <h1>Hi {{ user }}</h1>    
-        <!--intro text-->
-        <h3>Riddle Me Quiz Instructions</h3>
-    
-        <p>Below you will find a riddle. Submit your answer using the form field. If you are correct, the next riddle will show. 
-        If you are incorrect, you will be given another go. You have 3 attempts to get each riddle correct. </br>
-    
-        Sign in or sign up above to be logged into our leaderboard.</br>
-    
-        Good luck and happy riddling!</p> 
-        
-        {{ riddleQuiz }}
-            
-            <form>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                        <label>Answer</label>
-                        <input type="text" class="form-control" placeholder="Answer" name="answer" id="answer">
-                        <p class="help-block text-danger"></p>
-                        <button>Submit</button>
-                    </div>
-                </div>
-            </form>
-        
-    {% else %}
-        <h1>Please <a href="{{ url_for('signUp') }}">enter your name</a> to play the Riddle Me This game!</h1>
-       
-    {% endif %}     
-    
+<h1>Hi {{ user }}</h1>    
+<!--intro text-->
+<h3>Riddle Me Quiz Instructions</h3>
+
+<p>Below you will find a riddle. Submit your answer using the form. If you are correct, the next riddle will show. 
+If you are incorrect, you will be given another go. You have 3 attempts to get each riddle correct. </br>
+
+Your score will be logged to our leaderboard.</br>
+
+Good luck and happy riddling!</p> 
+
+<h4>Your current score is {{ score }}</h4>
+
+
+
+<h2>Riddle</h2>
+
+<p>{{ message }}</p>
+
+{{ question }}
+
+
+<form method="POST" name="answer">
+    <div class="control-group">
+        <div class="form-group floating-label-form-group controls">
+            <label>Your answer</label>
+            <input type="text" class="form-control" placeholder="Answer" name="answer" id="answer">
+            <p class="help-block text-danger"></p>
+            <input type="submit" value="Am I right?" class="btn btn">
+        </div>
+    </div>
+</form>
+
+
+
+<h4>Your current score is {{ score }}</h4>
+
+
 {% endblock %}
