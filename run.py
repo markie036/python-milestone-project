@@ -1,10 +1,18 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request
+from flask import Flask, flash, render_template, redirect, request
 
 riddles=[]
 with open("data/riddles.json") as riddles_file:
     riddles = json.load(riddles_file)
+
+    
+def right_answer(answer, riddle):
+    return answer == riddle["answer"]
+    
+def wrong_answer(answer, riddle):
+    return answer != riddle["answer"]
+
 
 app = Flask(__name__)
 app.secret_key = 'some_secret' 
@@ -13,22 +21,34 @@ app.secret_key = 'some_secret'
 def index():
     return render_template("index.html")
     
+@app.route('/broken')
+def fail():
+    assert 1 == 2
+    
 
 @app.route('/<user>', methods = ['GET', 'POST'])
 def quiz(user):
     
     riddle = riddles[0]
-
-    def right_answer(answer, riddle):
-        if answer == riddle("answer"):
-            game_status[user] += 1
-            print("Well done. You are correct!")
-        else:
-            print("Sorry you are incorrect. Try again")
+    
 
     if request.method == "POST":
-        answer = request.form["answer"]
+        answer = request.form.get("answer")
         
+        if right_answer(answer, riddle):
+            game_status[user] += 1
+            return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "Correct. Well done!")
+            
+        else:
+            return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "This is wrong. Try again")
+            
+        # check that the answer is correct.
+        # If true, display success message
+        # Add score
+        # Move to next question.
+        # If false, display wrong message
+        # Reduce no of guesses counter
+        # Show question again
         
     return render_template("user.html", user=user, score=game_status[user], question=riddle["question"] )
     
@@ -41,14 +61,19 @@ def leader():
 @app.route('/signUp', methods = ['GET', 'POST'])
 def signUp():
     if request.method == "POST":
-        user = request.form["user"] #user variable asks for username from the form
-        game_status[user] = 0 #sets users score to 0
-        return redirect(user) #redirect user (to quiz page)
+        user = request.form["user"]
+        game_status[user] = 0
+        return redirect(user)
     else:
         return render_template("signUp.html")
 
+#dictionary with user value and 3 values within it. USe this to keep track of a users progress
 game_status = {
-  'user': 0,
+  "mark": {
+    "score": 3,
+    "attempts": 2,
+    "riddle": 5,
+  }
 }
     
 if __name__ == '__main__':
