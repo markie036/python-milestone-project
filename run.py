@@ -5,15 +5,16 @@ from flask import Flask, flash, render_template, redirect, request
 riddles=[]
 with open("data/riddles.json") as riddles_file:
     riddles = json.load(riddles_file)
-
     
 def right_answer(answer, riddle):
     return answer == riddle["answer"]
-    
-def wrong_answer(answer, riddle):
-    return answer != riddle["answer"]
 
-
+#def next_question(riddles):
+    #for riddle in riddles:
+       # print("")
+        
+    # show next question in riddles and call function in request.method
+        
 app = Flask(__name__)
 app.secret_key = 'some_secret' 
 
@@ -31,20 +32,30 @@ def quiz(user):
     
     riddle = riddles[0]
     
+    max_guesses = 3
+    
+    counter = 0
 
     if request.method == "POST":
         answer = request.form.get("answer")
         
-        if right_answer(answer, riddle):
-            game_status[user] += 1
-            return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "Correct. Well done!")
-            
-        else:
-            return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "This is wrong. Try again")
-            
+        while counter < max_guesses:
+            if right_answer(answer, riddle):
+                game_status[user] += 1
+                # next_question(riddles)
+                return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "Correct. Well done!")
+                
+            else:
+                counter += 1
+                guesses_left = max_guesses - counter
+                print("answer")
+                return render_template("user.html", user=user, score=game_status[user], question=riddle["question"], message = "This is wrong. Try again. Your remaining guesses are:", guesses = guesses_left, answer = answer)
+        
+        # COMPLETED    
         # check that the answer is correct.
         # If true, display success message
         # Add score
+        # -------------------------------------
         # Move to next question.
         # If false, display wrong message
         # Reduce no of guesses counter
